@@ -10,15 +10,17 @@ endif()
 
 add_custom_command(
     OUTPUT genconfig.cpp
-    COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/scr.py ${CMAKE_CURRENT_SOURCE_DIR}/string.txt ${CMAKE_CURRENT_BINARY_DIR}/genconfig.cpp
-    DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/scr.py ${CMAKE_CURRENT_SOURCE_DIR}/string.txt
+    COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/scripts/scr.py ${CMAKE_CURRENT_SOURCE_DIR}/scripts/string.txt ${CMAKE_CURRENT_BINARY_DIR}/genconfig.cpp
+    DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/scripts/scr.py ${CMAKE_CURRENT_SOURCE_DIR}/scripts/string.txt
 )
+
+include_directories(src)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(program1_SRC
-	src1.cpp
+	src/src1.cpp
     genconfig.cpp
 )
 
